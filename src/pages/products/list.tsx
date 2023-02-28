@@ -5,7 +5,7 @@ import {
     GridColumns,
     EditButton,
     ShowButton,
-    DeleteButton,
+    //DeleteButton,
     List,
     MarkdownField,
 } from "@pankod/refine-mui";
