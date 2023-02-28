@@ -28,8 +28,20 @@ export const ProductShow = () => {
                         direction: "rtl",
                     }}
                 >
-        <Show isLoading={isLoading} title={<Typography variant="h5">תראה לי את המוצר</Typography>} >
-            <Stack gap={1}>
+        <Show 
+            headerProps={{
+                sx: {
+                    backgroundColor: "pink",
+                    color: "black"
+                }, 
+            }}
+            contentProps={{
+                sx: {
+                    backgroundColor: "lightgreen",
+                },
+            }}
+            isLoading={isLoading} title={<Typography variant="h5">תראה לי את המוצר</Typography>} >
+            <Stack gap={1} >
                 <Typography variant="body1" fontWeight="bold">
                     Id
                 </Typography>
