@@ -17,6 +17,8 @@ import dataProvider from "@pankod/refine-simple-rest";
 import routerProvider from "@pankod/refine-react-router-v6";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
 
+
+
 function App() {
   return (
     <ThemeProvider theme={LightTheme}>
@@ -37,8 +39,17 @@ function App() {
                 show: MuiInferencer,
                 create: MuiInferencer,
                 edit: MuiInferencer,
+                options: { label: "prodss" }
             },
-          ]}
+            {
+              name: "users",
+              list: MuiInferencer,
+              show: MuiInferencer,
+              create: MuiInferencer,
+              edit: MuiInferencer,
+          },
+        ]}
+          options={{ disableTelemetry: true}}
         />
       </RefineSnackbarProvider>
     </ThemeProvider>
