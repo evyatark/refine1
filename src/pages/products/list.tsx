@@ -91,6 +91,7 @@ export const ProductList = () => {
                 minWidth: 80,
             },
         ],
+        // eslint-disable-next-line
         [categoryData?.data],
     );
 
