@@ -17,7 +17,7 @@ import dataProvider from "@pankod/refine-simple-rest";
 import routerProvider from "@pankod/refine-react-router-v6";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
 
-
+import { ProductList } from "pages/products/list";
 
 function App() {
   return (
@@ -35,11 +35,12 @@ function App() {
           resources={[
             {
                 name: "products",
-                list: MuiInferencer,
+                //list: MuiInferencer,
+                list: ProductList,
                 show: MuiInferencer,
                 create: MuiInferencer,
                 edit: MuiInferencer,
-                options: { label: "prodss" }
+                //options: { label: "prodss" }
             },
             {
               name: "users",
