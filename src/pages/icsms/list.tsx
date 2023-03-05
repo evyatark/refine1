@@ -27,7 +27,7 @@ export const IcsmsProductList = () => {
                 minWidth: 200,
             },
             {
-                field: "product",
+                field: "type_model",
                 headerName: "Product",
                 minWidth: 200,
             },
@@ -37,12 +37,12 @@ export const IcsmsProductList = () => {
                 minWidth: 200,
             },
             {
-                field: "name_eng",
+                field: "product_name_english",
                 headerName: "Product Name (English)",
                 minWidth: 200,
             },
             {
-                field: "name",
+                field: "product_name_notifying_country",
                 headerName: "Product name (notifying country)",
                 minWidth: 200,
             },

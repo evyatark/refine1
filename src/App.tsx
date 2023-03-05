@@ -51,7 +51,8 @@ function App() {
                 name: "products",                
                 //list: ProductList,  
                 list: MuiInferencer,
-                show: ProductShow,  //show: MuiInferencer,
+                //show: ProductShow,  
+                show: MuiInferencer,
                 create: MuiInferencer,
                 edit: ProductEdit,  //edit: MuiInferencer,
                 //options: { label: "prodss" }

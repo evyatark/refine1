@@ -244,17 +244,35 @@ const rest_of_data = [
     }
 ]
 
+// TODO: use https://github.com/typicode/json-server to create a JSON server for myself!!
+
 export const icsms_products_data = [
         // example of a product: https://webgate.ec.europa.eu/icsms/public/productDetail.jsp?p=1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f&locale=en
         {
-            "id": 12,
+            "id": 1,
             "barcode": "4251698700086",
-            "product": "XA5P(S)(EU,M),  ...(weitere Infos siehe Suchkriterien (productkeywords))",
+            "type_model": "XA5P(S)(EU,M),  ...(weitere Infos siehe Suchkriterien (productkeywords))",
             "photo": "d9877190-685d-400b-abc3-73b43a1b3aa2",
-            "name_eng": "Across, Swace",
-            "name": "Across, Swace",
+            "product_name_english": "Across, Swace",
+            "product_name_notifying_country": "Across, Swace",
             "creation_date": "22/02/2023"
         },
+        {
+            "id": 2,    // 1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f
+            "barcode": "4251698700086", 
+            "product_name_english": "Low noise block", 
+            "product_name_notifying_country": "rauscharmer Signalumsetzer", 
+            "photo": "1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f",
+            "product_category": "7. Appliance mainly used in household \r\n  \
+            7.98. Other specified household appliance \r\n \
+            7.98.98. Other specified household appliance", 
+            "brand": "ANADOL", 
+            "type_model": "Gold Line SCR2 8UB+2LNB", 
+            // search_criteria_product_key_words, photo_or_drawing_of_product_packaging, 
+            "creation_date": "22/02/2023",
+            "country_of_origin": "Germany"
+            //, EU_EFTA_country    
+        }
     ]
 
 export const products_data =

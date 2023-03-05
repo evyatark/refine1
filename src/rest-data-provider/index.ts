@@ -2,7 +2,7 @@
 import { AxiosInstance } from "axios";
 // "stringify" function is re-exported from "query-string" package by "@pankod/refine-simple-rest"
 import { stringify } from "@pankod/refine-simple-rest";
-import { BaseRecord, DataProvider } from "@pankod/refine-core";
+import { DataProvider } from "@pankod/refine-core";
 import { axiosInstance, generateSort, generateFilter } from "./utils";
 import {users_data, products_data, icsms_products_data} from "./temp_data.js"
 
@@ -69,7 +69,7 @@ export const dataProvider = (
     // }
     if (resource==="icsms"){
       data = icsms_products_data
-      total = 1
+      total = 2
     }
 
 
@@ -120,37 +120,16 @@ export const dataProvider = (
 
   getOne: async ({ resource, id }) => {
     console.log("getOne called"); // url=https://api.fake-rest.refine.dev/products/12
-    const resource_for_url = resource==="icsms"?"users":resource;
+    const resource_for_url = resource==="icsms"?"users":resource; // if icsms, do a httpClient.get and do not use its result (must, because of the async)
     const url = `${apiUrl}/${resource_for_url}/${id}`;
     const { data } = await httpClient.get(url);
 
     if (resource==="icsms") {
-      const record : BaseRecord = {
-        "id": 1,    // 1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f
-        "barcode": "4251698700086qq", 
-        "product_name_english": "Low noise block", 
-        "product_name_notifying_country": "rauscharmer Signalumsetzer", 
-        "product_category": "7. Appliance mainly used in household \r\n  \
-        7.98. Other specified household appliance \r\n \
-        7.98.98. Other specified household appliance", 
-        "brand": "ANADOL", 
-        "type_model": "Gold Line SCR2 8UB+2LNB", 
-        // search_criteria_product_key_words, photo_or_drawing_of_product_packaging, 
-        "country_of_origin": "Germany"
-        //, EU_EFTA_country
-      }
+      const record : any = icsms_products_data[Number(id)-1]
+      // copy props from record to data (because TS requires data to be of Type BaseRecord!)
       for (const key in record) {
         data[key] = record[key]
       }
-      // data["barcode"] = "4251698700086";
-      // data["product_name_english"] = "Low noise block";
-      // data["product_name_notifying_country"] = "rauscharmer Signalumsetzer";
-      // data["product_category"] = "7. Appliance mainly used in household \
-      // 7.98. Other specified household appliance \
-      // 7.98.98. Other specified household appliance" ;
-      // data["brand"] = "ANADOL";
-      // data["type_model"] = "Gold Line SCR2 8UB+2LNB";
-      // data["country_of_origin"] = "Germany";
     }
     return {
       data,

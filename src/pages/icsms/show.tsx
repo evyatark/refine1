@@ -7,6 +7,7 @@ import {
     TextFieldComponent as TextField,
     MarkdownField,
 } from "@pankod/refine-mui";
+//import {icsms_products_data} from "./../../rest-data-provider/temp_data.js"
 
 // show ICSMS products (such as https://webgate.ec.europa.eu/icsms/public/productDetail.jsp?p=1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f&locale=en )
 export const IcsmsProductShow = () => {
@@ -19,20 +20,8 @@ export const IcsmsProductShow = () => {
     // barcode, product_name_english, product_name_notifying_country, product_category, brand, type_model, 
     // search_criteria_product_key_words, photo_or_drawing_of_product_packaging, country_of_origin, EU_EFTA_country
     // and sub table "investigations"!!
-    const record1 = {
-        "id": 1,    // 1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f
-        "barcode": "4251698700086", 
-        "product_name_english": "Low noise block", 
-        "product_name_notifying_country": "rauscharmer Signalumsetzer", 
-        "product_category": "7. Appliance mainly used in household \r\n  \
-        7.98. Other specified household appliance \r\n \
-        7.98.98. Other specified household appliance", 
-        "brand": "ANADOL", 
-        "type_model": "Gold Line SCR2 8UB+2LNB", 
-        // search_criteria_product_key_words, photo_or_drawing_of_product_packaging, 
-        "country_of_origin": "Germany"
-        //, EU_EFTA_country
-    }
+    // this is currently taken care of in rest-data-provider/index.ts
+    
 
     // query for category
     // const { data: categoryData, isLoading: categoryIsLoading } = useOne({
