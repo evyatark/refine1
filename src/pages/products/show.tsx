@@ -25,7 +25,7 @@ export const ProductShow = () => {
     return (
             <div
                     style={{
-                        direction: "rtl",
+                        direction: "ltr",
                     }}
                 >
         <Show 

@@ -13,13 +13,17 @@ import {
   ErrorComponent,
 } from "@pankod/refine-mui";
 
-import dataProvider from "@pankod/refine-simple-rest";
+//import dataProvider from "@pankod/refine-simple-rest";
+import {dataProvider} from "./rest-data-provider"
 import routerProvider from "@pankod/refine-react-router-v6";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
 
 import { ProductList } from "pages/products/list";
 import { ProductEdit } from "pages/products/edit";
 import { ProductShow } from "pages/products/show";
+
+import { IcsmsProductShow } from "pages/icsms/show";
+import { IcsmsProductList } from "pages/icsms/list";
 
 function App() {
   return (
@@ -36,8 +40,17 @@ function App() {
           routerProvider={routerProvider}
           resources={[
             {
+              name: "icsms",                
+              list: IcsmsProductList,  //list: MuiInferencer,
+              show: IcsmsProductShow,  //show: MuiInferencer,
+              create: MuiInferencer,
+              edit: ProductEdit,  //edit: MuiInferencer,
+              options: { label: "ICSMS Products" }
+            },
+            {
                 name: "products",                
-                list: ProductList,  //list: MuiInferencer,
+                //list: ProductList,  
+                list: MuiInferencer,
                 show: ProductShow,  //show: MuiInferencer,
                 create: MuiInferencer,
                 edit: ProductEdit,  //edit: MuiInferencer,
