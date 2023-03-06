@@ -30,7 +30,15 @@ export const IcsmsProductShow = () => {
     //         enabled: !!record,
     //     },
     // });
-
+    const { data: categoryData, isLoading: categoryIsLoading } = useOne({
+        resource: "investigations",
+        id: record?.investigation?.id || "",
+        queryOptions: {
+            enabled: !!record,
+        },
+    });
+    // temporary: This assumes running a json-server in localhost:3004 with static files...
+    const image = 'http://localhost:3004/' + record?.icsms_uuid + '.jpeg';
     return (
             <div
                     style={{
@@ -40,19 +48,19 @@ export const IcsmsProductShow = () => {
         <Show 
             headerProps={{
                 sx: {
-                    backgroundColor: "pink",
+                    //backgroundColor: "pink",
                     color: "black"
                 }, 
             }}
             contentProps={{
                 sx: {
-                    backgroundColor: "lightgreen",
+                    backgroundColor: "yellow",
                 },
             }}
             isLoading={isLoading} title={<Typography variant="h5">תראה לי את המוצר</Typography>} >
             <Stack gap={1} >
                 <Typography variant="body1" fontWeight="bold">
-                    GTIN (EAN) Code / Barcode
+                    GTIN (EAN) Code / Barcode                    
                 </Typography>
                 <TextField value={record?.barcode ?? ""} />
                 <Typography variant="body1" fontWeight="bold">
@@ -63,10 +71,6 @@ export const IcsmsProductShow = () => {
                     Product name (notifying country)
                 </Typography>
                 <TextField value={record?.product_name_notifying_country} />
-                <Typography variant="body1" fontWeight="bold">
-                    Product category
-                </Typography>
-                <TextField value={record?.product_category} />
                 <Typography variant="body1" fontWeight="bold">
                     Brand
                 </Typography>
@@ -80,8 +84,25 @@ export const IcsmsProductShow = () => {
                 </Typography>
                 <TextField value={record?.country_of_origin} />
                 <Typography variant="body1" fontWeight="bold">
-                    Category
+                    Search Keywords
                 </Typography>
+                <TextField value={record?.search_criteria_product_key_words} />
+                <Typography variant="body1" fontWeight="bold">
+                    Photo
+                </Typography>
+                <div><img src={image} alt="No Photo" style={{ width: '200', }} /></div>
+                <Typography variant="body1" fontWeight="bold">
+                    Product category
+                </Typography>
+                <MarkdownField value={'```\n' + record?.product_category + '\n'} />
+                <Typography variant="body1" fontWeight="bold">
+                    Investigations
+                </Typography>
+                {categoryIsLoading ? (
+                    <>Loading...</>
+                ) : (
+                    <>{categoryData?.data?.creation_date}-{categoryData?.data?.title}</>
+                )}
             </Stack>
         </Show>
         </div>

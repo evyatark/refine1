@@ -24,7 +24,7 @@ import { ProductShow } from "pages/products/show";
 
 import { IcsmsProductShow } from "pages/icsms/show";
 import { IcsmsProductList } from "pages/icsms/list";
-
+const { Link } = routerProvider;
 function App() {
   return (
     <ThemeProvider theme={LightTheme}>
@@ -33,12 +33,19 @@ function App() {
       <RefineSnackbarProvider>
         <Refine
           //dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
-          dataProvider={dataProvider("https://my-json-server.typicode.com/evyatark/icsms")}
+          //dataProvider={dataProvider("https://my-json-server.typicode.com/evyatark/icsms")}
+          dataProvider={dataProvider("http://localhost:3004")}
           notificationProvider={notificationProvider}
           Layout={Layout}
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
           routerProvider={routerProvider}
+          Title={() => (
+            <Link to="/" style={{ float: "left", marginRight: "10px" }}>
+                <img src="/hasadna-logo-light340.png" alt="הסדנא" width={100} style={{ marginRight: "5px" }}  />
+                <img src="/kohelet.png" alt="הסדנא" width={50} />
+            </Link>
+        )}
           resources={[
             {
               name: "icsms",                

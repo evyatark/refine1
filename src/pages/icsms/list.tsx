@@ -23,22 +23,30 @@ export const IcsmsProductList = () => {
             // },
             {
                 field: "barcode",
-                headerName: "GTIN (EAN) Code / Barcode",
+                headerName: "ברקוד",
+                headerAlign: "center",
+                //headerName: "GTIN (EAN) Code / Barcode",
                 minWidth: 200,
             },
             {
                 field: "type_model",
-                headerName: "Product",
+                headerName: "מודל",
+                headerAlign: "center",
+                //headerName: "Product",
                 minWidth: 200,
             },
             {
                 field: "photo",
-                headerName: "Photo of product",
+                headerName: "תמונה",
+                headerAlign: "center",
+                //headerName: "Photo of product",
                 minWidth: 200,
             },
             {
                 field: "product_name_english",
-                headerName: "Product Name (English)",
+                headerName: "תיאור מוצר באנגלית",
+                headerAlign: "center",
+                //headerName: "Product Name (English)",
                 minWidth: 200,
             },
             {
@@ -48,7 +56,10 @@ export const IcsmsProductList = () => {
             },
             {
                 field: "creation_date",
-                headerName: "Date of Creation",
+                headerName: "תאריך פתיחת חקירה",
+                headerAlign: "center",
+                align: "center",
+                //headerName: "Date of Creation",
                 minWidth: 200,
             },
             {
