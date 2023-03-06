@@ -32,7 +32,8 @@ function App() {
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
         <Refine
-          dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+          //dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+          dataProvider={dataProvider("https://my-json-server.typicode.com/evyatark/icsms")}
           notificationProvider={notificationProvider}
           Layout={Layout}
           ReadyPage={ReadyPage}
@@ -47,23 +48,23 @@ function App() {
               edit: ProductEdit,  //edit: MuiInferencer,
               options: { label: "ICSMS Products" }
             },
-            {
-                name: "products",                
-                //list: ProductList,  
-                list: MuiInferencer,
-                //show: ProductShow,  
-                show: MuiInferencer,
-                create: MuiInferencer,
-                edit: ProductEdit,  //edit: MuiInferencer,
-                //options: { label: "prodss" }
-            },
-            {
-              name: "users",
-              list: MuiInferencer,
-              show: MuiInferencer,
-              create: MuiInferencer,
-              edit: MuiInferencer,
-          },
+          //   {
+          //       name: "products",                
+          //       //list: ProductList,  
+          //       list: MuiInferencer,
+          //       //show: ProductShow,  
+          //       show: MuiInferencer,
+          //       create: MuiInferencer,
+          //       edit: ProductEdit,  //edit: MuiInferencer,
+          //       //options: { label: "prodss" }
+          //   },
+          //   {
+          //     name: "users",
+          //     list: MuiInferencer,
+          //     show: MuiInferencer,
+          //     create: MuiInferencer,
+          //     edit: MuiInferencer,
+          // },
         ]}
           options={{ disableTelemetry: true}}
         />

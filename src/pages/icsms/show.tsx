@@ -7,7 +7,6 @@ import {
     TextFieldComponent as TextField,
     MarkdownField,
 } from "@pankod/refine-mui";
-//import {icsms_products_data} from "./../../rest-data-provider/temp_data.js"
 
 // show ICSMS products (such as https://webgate.ec.europa.eu/icsms/public/productDetail.jsp?p=1c0f4dcd-0bf0-4cd2-afb3-34a68b03821f&locale=en )
 export const IcsmsProductShow = () => {

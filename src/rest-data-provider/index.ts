@@ -4,7 +4,6 @@ import { AxiosInstance } from "axios";
 import { stringify } from "@pankod/refine-simple-rest";
 import { DataProvider } from "@pankod/refine-core";
 import { axiosInstance, generateSort, generateFilter } from "./utils";
-import {users_data, products_data, icsms_products_data} from "./temp_data.js"
 
 export const dataProvider = (
   apiUrl: string,
@@ -46,10 +45,6 @@ export const dataProvider = (
       query._order = _order.join(",");
     }
 
-    if (resource==="icsms"){
-      url=`${apiUrl}/products`;
-    }
-
     console.log(query)
     console.log(queryFilters)
     let { data, headers } = await httpClient.get(
@@ -57,21 +52,6 @@ export const dataProvider = (
     );
     
     let total = +headers["x-total-count"];
-
-    // temporary hard coded data! Note that it does not handle sort and filter!
-    // if (resource==="users") {
-    //   data = users_data
-    //   total = 5
-    // }
-    // if (resource==="products"){
-    //   data = products_data
-    //   total = 20
-    // }
-    if (resource==="icsms"){
-      data = icsms_products_data
-      total = 2
-    }
-
 
     return {
       data,
@@ -119,18 +99,9 @@ export const dataProvider = (
   },
 
   getOne: async ({ resource, id }) => {
-    console.log("getOne called"); // url=https://api.fake-rest.refine.dev/products/12
-    const resource_for_url = resource==="icsms"?"users":resource; // if icsms, do a httpClient.get and do not use its result (must, because of the async)
-    const url = `${apiUrl}/${resource_for_url}/${id}`;
+    const url = `${apiUrl}/${resource}/${id}`;
     const { data } = await httpClient.get(url);
 
-    if (resource==="icsms") {
-      const record : any = icsms_products_data[Number(id)-1]
-      // copy props from record to data (because TS requires data to be of Type BaseRecord!)
-      for (const key in record) {
-        data[key] = record[key]
-      }
-    }
     return {
       data,
     };
