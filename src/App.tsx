@@ -34,7 +34,8 @@ function App() {
         <Refine
           //dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
           //dataProvider={dataProvider("https://my-json-server.typicode.com/evyatark/icsms")}
-          dataProvider={dataProvider("http://localhost:3004")}
+          //dataProvider={dataProvider("http://localhost:3004")}
+          dataProvider={dataProvider("https://icsms-json-server.vercel.app")}
           notificationProvider={notificationProvider}
           Layout={Layout}
           ReadyPage={ReadyPage}
