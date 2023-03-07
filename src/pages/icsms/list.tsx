@@ -26,7 +26,7 @@ export const IcsmsProductList = () => {
                 headerName: "ברקוד",
                 headerAlign: "center",
                 //headerName: "GTIN (EAN) Code / Barcode",
-                minWidth: 200,
+                minWidth: 150,
             },
             {
                 field: "type_model",
@@ -36,18 +36,25 @@ export const IcsmsProductList = () => {
                 minWidth: 200,
             },
             {
-                field: "photo",
-                headerName: "תמונה",
+                field: "country_of_origin",
+                headerName: "מדינת מוצא",
                 headerAlign: "center",
-                //headerName: "Photo of product",
-                minWidth: 200,
+                //headerName: "Country of Origin",
+                minWidth: 150,
+            },
+            {
+                field: "brand",
+                headerName: "מותג",
+                headerAlign: "center",
+                //headerName: "Brand",
+                minWidth: 100,
             },
             {
                 field: "product_name_english",
                 headerName: "תיאור מוצר באנגלית",
                 headerAlign: "center",
                 //headerName: "Product Name (English)",
-                minWidth: 200,
+                minWidth: 300,
             },
             {
                 field: "product_name_notifying_country",
@@ -60,7 +67,7 @@ export const IcsmsProductList = () => {
                 headerAlign: "center",
                 align: "center",
                 //headerName: "Date of Creation",
-                minWidth: 200,
+                minWidth: 150,
             },
             {
                 field: "actions",
@@ -68,7 +75,6 @@ export const IcsmsProductList = () => {
                 renderCell: function render({ row }) {
                     return (
                         <>
-                            <EditButton hideText recordItemId={row.id} />
                             <ShowButton hideText recordItemId={row.id} />
                         </>
                     );
@@ -81,7 +87,7 @@ export const IcsmsProductList = () => {
         ],[]
     );
     return (
-        <List>
+        <List canCreate={false}>            
             <DataGrid {...dataGridProps} columns={columns} autoHeight />
         </List>
     );

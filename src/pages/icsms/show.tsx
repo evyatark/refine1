@@ -14,22 +14,7 @@ export const IcsmsProductShow = () => {
     const { data, isLoading } = queryResult;
 
     const record = data?.data;
-    // expect record to have the following properties:
-    // id (probably required by refine)
-    // barcode, product_name_english, product_name_notifying_country, product_category, brand, type_model, 
-    // search_criteria_product_key_words, photo_or_drawing_of_product_packaging, country_of_origin, EU_EFTA_country
-    // and sub table "investigations"!!
-    // this is currently taken care of in rest-data-provider/index.ts
-    
 
-    // query for category
-    // const { data: categoryData, isLoading: categoryIsLoading } = useOne({
-    //     resource: "categories",
-    //     id: record?.category?.id || "",
-    //     queryOptions: {
-    //         enabled: !!record,
-    //     },
-    // });
     const { data: categoryData, isLoading: categoryIsLoading } = useOne({
         resource: "investigations",
         id: record?.investigation?.id || "",
@@ -39,7 +24,7 @@ export const IcsmsProductShow = () => {
     });
     // temporary: This assumes running a json-server in localhost:3004 with static files...
     // const image = 'http://localhost:3004/' + record?.icsms_uuid + '.jpeg';
-    // This uses the public deploy of the DB
+    // This retrieves the photo from the public deploy of the DB
     const image = 'https://icsms-json-server.vercel.app/' + record?.icsms_uuid + '.jpeg';
     return (
             <div
@@ -48,18 +33,19 @@ export const IcsmsProductShow = () => {
                     }}
                 >
         <Show 
+            canEdit={false}
             headerProps={{
                 sx: {
-                    //backgroundColor: "pink",
+                    backgroundColor: "yellow",
                     color: "black"
                 }, 
             }}
             contentProps={{
                 sx: {
-                    backgroundColor: "yellow",
+                    //backgroundColor: "yellow",
                 },
             }}
-            isLoading={isLoading} title={<Typography variant="h5">תראה לי את המוצר</Typography>} >
+            isLoading={isLoading} title={<Typography variant="h5">פרטי המוצר</Typography>} >
             <Stack gap={1} >
                 <Typography variant="body1" fontWeight="bold">
                     GTIN (EAN) Code / Barcode                    
@@ -97,6 +83,10 @@ export const IcsmsProductShow = () => {
                     Product category
                 </Typography>
                 <MarkdownField value={'```\n' + record?.product_category + '\n'} />
+                <Typography variant="body1" fontWeight="bold">
+                    Link to Original record
+                </Typography>
+                <div><a href={record?.icsms_url} target="_blank">link</a></div>
                 <Typography variant="body1" fontWeight="bold">
                     Investigations
                 </Typography>
