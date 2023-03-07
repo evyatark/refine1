@@ -44,7 +44,7 @@ function App() {
           Title={() => (
             <Link to="/" style={{ float: "left", marginRight: "10px" }}>
                 <img src="/hasadna-logo-light340.png" alt="הסדנא" width={100} style={{ marginRight: "5px" }}  />
-                <img src="/kohelet.png" alt="הסדנא" width={50} />
+                <img src="/kohelet.png" alt="קהלת" width={50} />
             </Link>
         )}
           resources={[

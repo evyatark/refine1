@@ -38,7 +38,9 @@ export const IcsmsProductShow = () => {
         },
     });
     // temporary: This assumes running a json-server in localhost:3004 with static files...
-    const image = 'http://localhost:3004/' + record?.icsms_uuid + '.jpeg';
+    // const image = 'http://localhost:3004/' + record?.icsms_uuid + '.jpeg';
+    // This uses the public deploy of the DB
+    const image = 'https://icsms-json-server.vercel.app/' + record?.icsms_uuid + '.jpeg';
     return (
             <div
                     style={{
